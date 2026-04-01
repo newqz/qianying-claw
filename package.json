@@ -1,0 +1,45 @@
+{
+  "name": "qianying-claw",
+  "version": "1.0.0",
+  "description": "千影Claw - 飞书版 AI 编程助手",
+  "type": "module",
+  "main": "dist/main.js",
+  "bin": {
+    "qianying-claw": "./dist/main.js"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "tsx src/test.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "claude-code",
+    "feishu",
+    "lark",
+    "ai-assistant",
+    "minimax"
+  ],
+  "author": "新千竹文化",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.16.0",
+    "zod": "^3.22.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "@types/uuid": "^9.0.7",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newqz/qianying-claw.git"
+  }
+}

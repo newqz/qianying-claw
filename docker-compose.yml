@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  qianying-claw:
+    build: .
+    ports:
+      - "18792:18792"
+    environment:
+      - QIANYING_PORT=18792
+      - CLAUDE_MODEL=MiniMax-M2.7
+      - CLAUDE_WORK_DIR=/workspace
+    volumes:
+      - ./workspace:/workspace
+      - ~/.claude:/root/.claude:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:18792/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
