@@ -12,13 +12,13 @@
 import { QianyingClawGateway } from './server.js';
 import { QianyingClawConfig } from './bridge.js';
 
-// 默认配置
+// 全权限配置
 const DEFAULT_CONFIG: QianyingClawConfig = {
   claude: {
-    permissionMode: 'acceptEdits',
+    permissionMode: 'bypassPermissions',  // 全系统权限
     model: 'MiniMax-M2.7',
-    workDir: '/tmp',
-    additionalDirs: [],
+    workDir: '/root',  // 从 root 目录开始
+    additionalDirs: ['/home', '/tmp', '/var'],  // 允许访问更多目录
   },
 };
 
