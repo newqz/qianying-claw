@@ -148,6 +148,27 @@ npm test
 npm run dev
 ```
 
+## 🔐 权限模式
+
+千影Claw 默认使用 `bypassPermissions` 模式，拥有全系统权限：
+
+- 无需确认即可读写文件
+- 无需确认即可执行命令
+- 可访问 `/root`, `/home`, `/tmp`, `/var` 等目录
+
+如需限制权限，可修改 `src/main.ts` 中的 `permissionMode`:
+
+```typescript
+const DEFAULT_CONFIG: QianyingClawConfig = {
+  claude: {
+    permissionMode: 'bypassPermissions', // 全权限
+    // permissionMode: 'acceptEdits',     // 接受编辑
+    // permissionMode: 'plan',            // 仅规划
+    // permissionMode: 'default',          // 默认（每次确认）
+  },
+};
+```
+
 ## 📜 许可证
 
 MIT License
