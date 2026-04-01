@@ -41,8 +41,37 @@ npm install
 
 ### 配置
 
+**方式一：环境变量 (.env)**
+
 ```bash
-# 配置 Claude Code 使用 MiniMax
+# 创建 .env 文件
+cat > /root/qianying-claw/.env << 'EOF'
+FEISHU_APP_ID=cli_xxx
+FEISHU_APP_SECRET=xxx
+MINIMAX_API_KEY=sk-xxx
+QIANYING_PORT=18792
+EOF
+```
+
+**方式二：修改 main.ts**
+
+```typescript
+const DEFAULT_CONFIG: QianyingClawConfig = {
+  claude: {
+    permissionMode: 'bypassPermissions',
+    model: 'MiniMax-M2.7',
+    workDir: '/root',
+  },
+  feishu: {
+    appId: 'cli_xxx',
+    appSecret: 'xxx',
+  },
+};
+```
+
+**Claude Code MiniMax 配置**
+
+```bash
 mkdir -p ~/.claude
 cat > ~/.claude/settings.json << 'EOF'
 {
